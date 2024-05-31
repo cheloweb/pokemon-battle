@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Batalla Pokémon</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+    <link href="/static/css/styles.css" rel="stylesheet">
+    <link rel="icon" href="/static/images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5 text-center">Batalla Pokémon</h1>
+        <div class="row mt-4">
+            <div class="col-md-5">
+                <form id="battleForm">
+                    <div class="pokemon-select">
+                        <label for="pokemon1">Pokémon 1:</label>
+                        <div class="input-group mb-3">
+                            <select id="pokemon1" name="pokemon1" class="form-control">
+                                <option value="" disabled selected hidden></option>
+                            </select>
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary" type="button" id="random1">Aleatorio</button>
+                            </div>
+                        </div>
+                        <div id="pokemon1-info" class="pokemon-info">
+                            <div class="pokemon-details"></div>
+                            <img src="" alt="" class="pokemon-image">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-2 text-center align-self-center">
+                <button type="submit" class="btn btn-primary" id="predict-btn">Iniciar Batalla</button>
+                <div id="error-message" class="alert alert-danger" style="display: none;"></div>
+            </div>
+            <div class="col-md-5">
+                <div class="pokemon-select">
+                    <label for="pokemon2">Pokémon 2:</label>
+                    <div class="input-group mb-3">
+                        <select id="pokemon2" name="pokemon2" class="form-control">
+                            <option value="" disabled selected hidden></option>
+                        </select>
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary" type="button" id="random2">Aleatorio</button>
+                        </div>
+                    </div>
+                    <div id="pokemon2-info" class="pokemon-info">
+                        <div class="pokemon-details"></div>
+                        <img src="" alt="" class="pokemon-image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Incluir el historial de batallas -->
+    <div id="battle-history">
+        {% include 'battle_history.html' %}
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="winnerModal" tabindex="-1" role="dialog" aria-labelledby="winnerModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="winnerModalLabel">Y el ganador es...</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body text-center">
+                    <div id="loadingMessage">
+                        <div class="spinner-border text-primary" role="status">
+                            <span class="sr-only">Batalla en curso...</span>
+                        </div>
+                        <p>Batalla en curso...</p>
+                    </div>
+                    <div id="winnerDisplay" style="display: none;">
+                        <img id="winnerImage" src="" alt="Ganador Pokémon" class="img-fluid" style="max-height: 300px;">
+                        <h2 id="winnerName"></h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+    <script src="/static/js/scripts.js"></script>
+</body>
+</html>

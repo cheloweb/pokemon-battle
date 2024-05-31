@@ -1,0 +1,22 @@
+.pokemon-info {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+}
+.pokemon-details {
+    flex: 1;
+}
+.pokemon-image {
+    max-height: 150px;
+    margin-left: 20px;
+}
+.pokemon-select {
+    margin-bottom: 20px;
+}
+.hp-value {
+    font-size: 1.5em;
+    color: red;
+}
+.alert {
+    margin-top: 20px;
+}
