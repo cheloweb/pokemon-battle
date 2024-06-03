@@ -1,8 +1,6 @@
 from flask import Flask, render_template, request, jsonify
 from flask_babel import Babel, gettext
 import pandas as pd
-import pickle
-import os
 import joblib
 
 app = Flask(__name__)
