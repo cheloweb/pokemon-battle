@@ -1,5 +1,5 @@
-flask
-flask_babel
+Flask
+Flask_babel
 pandas
 joblib
 scikit-learn
